@@ -60,7 +60,7 @@ def encrypt_all_files():
     for root, dirs, files in os.walk("."):
         for filename in files:
             file_path = os.path.join(root, filename)
-            if filename not in ["public_key.pem", "private_key.pem", "encrypted_fernet_key.key","genkey.py" ,script_name] and not filename.endswith(".enc"):
+            if filename not in ["public_key.pem", "private_key.pem", "encrypted_fernet_key.key","genkey.py" ,"start.bat", "README.md",script_name] and not filename.endswith(".enc"):
                 encrypt_file(file_path, fernet)
 
 def decrypt_all_files():
@@ -72,13 +72,13 @@ def decrypt_all_files():
                 decrypt_file(file_path, fernet)
 
 if __name__ == "__main__":
-    action = input("Möchten Sie alle Dateien im Ordner und Unterverzeichnissen verschlüsseln oder entschlüsseln? (e/d): ")
+    action = input("Möchten Sie alle Dateien im Ordner und Unterverzeichnissen verschlüsseln oder entschlüsseln? (v/e): ")
     
-    if action.lower() == 'e':
+    if action.lower() == 'v':
         encrypt_all_files()
-    elif action.lower() == 'd':
+    elif action.lower() == 'e':
         decrypt_all_files()
     else:
-        print("Ungültige Eingabe! Bitte 'e' für Verschlüsseln oder 'd' für Entschlüsseln eingeben.")
+        print("Ungültige Eingabe! Bitte 'v' für Verschlüsseln oder 'e' für Entschlüsseln eingeben.")
 
 
